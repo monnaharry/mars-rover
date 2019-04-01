@@ -16,11 +16,11 @@ class Input
   end
 end
 
-# test = "5 5
-# 1 2 N
-# LMLMLMLMM
-# 3 3 E
-# MMRMMRMRRM"
+test = "5 5
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM"
 
-# i = Input.new(data: test)
-# p i.parse
+i = Input.new(data: test)
+p i.parse
