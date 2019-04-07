@@ -1,5 +1,4 @@
-require_relative 'plateau'
-
+# rover behaviior
 class Rover
   attr_accessor :x, :y, :plateau, :orientation
   def initialize(attributes = {})
@@ -44,19 +43,24 @@ class Rover
   end
 
   def interpret_input
-    @instructions.each_char do |command|
+    @instructions.to_s.each_char do |command|
       case command
       when 'L' then left
       when 'R' then right
       when 'M' then move
       end
     end
+    self
+  end
+
+  def plateau_dimensions
+    [@data.split[0].to_i, @data.split[1].to_i]
+  end
+
+  def parse
+    @input = @data.split("\n")
+    @input = @input.map { |item| item.split(' ') }
+    @input.shift
+    @input = @input.each_slice(2).to_a
   end
 end
-
-pl = Plateau.new(4, 4)
-
-r = Rover.new(orientation: 'N', x: 0, y: 0, plateau: pl, instructions: 'MMMMMM')
-
-r.interpret_input
-p r.at_edge?
