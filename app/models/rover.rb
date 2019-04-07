@@ -28,7 +28,7 @@ class Rover
   end
 
   def move
-    return self if at_edge?
+    # return self if at_edge?
 
     case @orientation
     when 'N' then @y += 1
@@ -38,9 +38,9 @@ class Rover
     end
   end
 
-  def at_edge?
-    true if @plateau.max_x == @x || @plateau.max_y == @y
-  end
+  # def at_edge?
+  #   true if @plateau.max_x == @x || @plateau.max_y == @y
+  # end
 
   def interpret_input
     @instructions.to_s.each_char do |command|
@@ -50,6 +50,7 @@ class Rover
       when 'M' then move
       end
     end
+
     self
   end
 
